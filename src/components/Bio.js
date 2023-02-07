@@ -1,6 +1,12 @@
+import { useRef } from "react";
+import { useBioReveal } from "../hook/gsap";
+
 const Bio = () => {
+  const bioRef = useRef(null);
+
+  useBioReveal(bioRef, 2);
   return (
-    <div className="bio mt-20 container mx-auto overflow-hidden">
+    <div className="bio mt-20 container mx-auto overflow-hidden" ref={bioRef}>
       <p>
         I am a Front-End Developer specialized in building responsive web
         applications using React, Redux, Tailwind CSS and GSAP. My expertise in
