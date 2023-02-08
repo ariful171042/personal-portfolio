@@ -2,11 +2,15 @@ import { useRef } from "react";
 import { useSocialReveal } from "../hook/gsap";
 
 const data = [
-  { id: 1, title: "Facebook", url: "https://www.google.com" },
-  { id: 2, title: "Twitter", url: "https://www.google.com" },
-  { id: 3, title: "GitHub", url: "https://www.google.com" },
-  { id: 4, title: "LinkedIn", url: "https://www.google.com" },
-  { id: 5, title: "Leetcode", url: "https://www.google.com" },
+  { id: 1, title: "Facebook", url: "https://www.facebook.com/rakibariful.927" },
+  { id: 2, title: "Twitter", url: "https://www.twitter.com" },
+  { id: 3, title: "GitHub", url: "https://github.com/ariful171042" },
+  {
+    id: 4,
+    title: "LinkedIn",
+    url: "https://www.linkedin.com/in/md-ariful-islam-b0b41122b/",
+  },
+  { id: 5, title: "Leetcode", url: "https://leetcode.com/ariful171042/" },
 ];
 
 const Socials = () => {

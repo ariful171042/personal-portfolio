@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useSectionTitleReveal } from "../hook/gsap";
+import { useSectionTitleReveal } from "../hooks/gsap";
 
 const SectionTitle = ({ title }) => {
   const sectionRef = useRef(null);

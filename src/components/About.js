@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { useProjectLeftRightReveal } from "../hook/gsap";
-import { useHoverEffect } from "../hook/useHoverEffect";
+import { useProjectLeftRightReveal } from "../hooks/gsap";
+import { useHoverEffect } from "../hooks/useHoverEffect";
 import SectionTitle from "./SectionTitle";
 
 const data = {
-  img1: "https://res.cloudinary.com/dokdacs1p/image/upload/v1675500946/2_pjggdd.jpg",
-  img2: "https://res.cloudinary.com/dokdacs1p/image/upload/v1675500946/1_xigng2.jpg",
+  img1: "https://res.cloudinary.com/dcvvwskjo/image/upload/v1675862605/Portfolio/105491595_184808956345313_4289435482843153036_n_fvd4x6.jpg",
+  img2: "https://res.cloudinary.com/dokdacs1p/image/upload/v1675500946/2_pjggdd.jpg",
 };
 
 const About = () => {
@@ -47,7 +47,7 @@ const About = () => {
             market.
           </p>
           <a
-            href="https://www.google.com"
+            href="https://docs.google.com/document/d/1enlkgz0GScNPPAi5lnlo5PtHkP6Bxuq4UsmYSqtyQ6Q/edit?usp=sharing"
             target="_blank"
             rel="noreferrer"
             className=" inline-block mt-10 uppercase py-8 px-14 border  border-white/20 rounded-full hover:bg-cyan-400/20 hover:border-cyan-400/20 duration-500"

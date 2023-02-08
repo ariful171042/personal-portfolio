@@ -65,7 +65,14 @@ const Navber = ({ footerNav }) => {
           </HashLink>
         </li>
         <li>
-          <HashLink smooth to={"#resume"} className="link-item" ref={link7Ref}>
+          <HashLink
+            smooth
+            to={
+              "https://docs.google.com/document/d/1enlkgz0GScNPPAi5lnlo5PtHkP6Bxuq4UsmYSqtyQ6Q/edit?usp=sharing"
+            }
+            className="link-item"
+            ref={link7Ref}
+          >
             Resume
           </HashLink>
         </li>
