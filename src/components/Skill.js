@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useSkillLineReveal, useSkillTextReveal } from "../hooks/gsap";
+import { useSkillLineReveal, useSkillTextReveal } from "../hook/gsap";
 import SectionTitle from "./SectionTitle";
 
 const data = [

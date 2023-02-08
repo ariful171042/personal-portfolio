@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { useProjectLeftRightReveal } from "../hooks/gsap";
-import { useHoverEffect } from "../hooks/useHoverEffect";
+import { useProjectLeftRightReveal } from "../hook/gsap";
+import { useHoverEffect } from "../hook/useHoverEffect";
 
 const Project = ({ project }) => {
   const projectrightRef = useRef(null);
