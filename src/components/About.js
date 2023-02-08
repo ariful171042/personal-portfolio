@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useProjectLeftRightReveal } from "../hook/gsap";
 import { useHoverEffect } from "../hook/useHoverEffect";
 import SectionTitle from "./SectionTitle";
 
@@ -9,6 +10,11 @@ const data = {
 
 const About = () => {
   const aboutImageRef = useRef(null);
+  const aboutRightRef = useRef(null);
+
+  const aboutRefs = [aboutImageRef, aboutRightRef];
+
+  useProjectLeftRightReveal(aboutRefs);
 
   useHoverEffect(aboutImageRef, data.img1, data.img2);
   return (
@@ -17,7 +23,7 @@ const About = () => {
 
       <div className="about-wrapper mt-40 grid grid-cols-2 gap-20 overflow-hidden">
         <div className="about-left" ref={aboutImageRef}></div>
-        <div className="about-right">
+        <div className="about-right" ref={aboutRightRef}>
           <p>
             I am a MERN stack developer with a strong focus on React, Redux, and
             Tailwind CSS. I specialize in building responsive and user-friendly

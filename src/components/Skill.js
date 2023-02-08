@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { useSkillLineReveal, useSkillTextReveal } from "../hook/gsap";
 import SectionTitle from "./SectionTitle";
 
 const data = [
@@ -16,6 +18,16 @@ const data = [
 ];
 
 const Skill = () => {
+  const skillItemRef = useRef([]);
+  const skillItem2Ref = useRef([]);
+  const skillTextRef = useRef([]);
+  const skillText2Ref = useRef([]);
+
+  useSkillLineReveal(skillItemRef.current);
+  useSkillLineReveal(skillItem2Ref.current);
+
+  useSkillTextReveal(skillTextRef.current);
+  useSkillTextReveal(skillText2Ref.current);
   return (
     <div className="skill container mx-auto mt-40" id="Skills">
       <SectionTitle title={"Skills"} />
@@ -25,8 +37,15 @@ const Skill = () => {
           {data
             .filter((_, i) => i < Math.floor(data.length / 2))
             .map((skill, i) => (
-              <li key={skill.id} className="skill-item overflow-hidden">
-                <div className="flex gap-10 items-baseline">
+              <li
+                key={skill.id}
+                className="skill-item overflow-hidden"
+                ref={(el) => (skillItemRef.current[i] = el)}
+              >
+                <div
+                  className="flex gap-10 items-baseline"
+                  ref={(el) => (skillTextRef.current[i] = el)}
+                >
                   <span className="skill-number text-white/50">
                     {String(skill.id).padStart(2, 0).padEnd(3, ".")}
                   </span>
@@ -39,8 +58,15 @@ const Skill = () => {
           {data
             .filter((_, i) => i >= Math.floor(data.length / 2))
             .map((skill, i) => (
-              <li key={skill.id} className="skill-item overflow-hidden">
-                <div className="flex gap-10 items-baseline">
+              <li
+                key={skill.id}
+                className="skill-item overflow-hidden"
+                ref={(el) => (skillItem2Ref.current[i] = el)}
+              >
+                <div
+                  className="flex gap-10 items-baseline"
+                  ref={(el) => (skillText2Ref.current[i] = el)}
+                >
                   <span className="skill-number text-white/50">
                     {String(skill.id).padStart(2, 0).padEnd(3, ".")}
                   </span>

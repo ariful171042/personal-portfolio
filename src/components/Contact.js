@@ -1,6 +1,17 @@
+import { useRef } from "react";
+import { useContactReveal } from "../hook/gsap";
 import SectionTitle from "./SectionTitle";
 
 const Contact = () => {
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const massageRef = useRef(null);
+  const submitRef = useRef(null);
+
+  const contactRefs = [nameRef, emailRef, massageRef, submitRef];
+
+  useContactReveal(contactRefs);
+
   const sendMassage = (e) => {
     e.preventDefault();
 
@@ -16,7 +27,7 @@ const Contact = () => {
       <SectionTitle title={"Contact"} />
 
       <form onSubmit={sendMassage} className="mt-40 grid grid-cols-2 gap-20">
-        <div className="from-control overflow-hidden">
+        <div className="from-control overflow-hidden" ref={nameRef}>
           <input
             type="text"
             placeholder="Write your name"
@@ -32,6 +43,7 @@ const Contact = () => {
             name="email"
             required
             className="email bg-transparent border py-16 px-28 rounded-full border-white/20 outline-none focus:border-cyan-400 duration-500 w-full"
+            ref={emailRef}
           />
         </div>
         <div className="from-control overflow-hidden">
@@ -42,6 +54,7 @@ const Contact = () => {
             rows="1"
             cols="30"
             className="massage bg-transparent border py-16 px-28 rounded-full border-white/20 outline-none focus:border-cyan-400 duration-500 w-full resize-none"
+            ref={massageRef}
           />
         </div>
         <div className="from-control overflow-hidden">
@@ -51,6 +64,7 @@ const Contact = () => {
             name="email"
             required
             className=" border py-16 px-28 rounded-full border-white/20 outline-none hover:bg-cyan-400/20 hover:border-cyan-400/20 duration-500 w-full uppercase tracking-widest"
+            ref={submitRef}
           />
         </div>
       </form>
