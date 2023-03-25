@@ -8,7 +8,7 @@ const data = [
   {
     id: 4,
     title: "LinkedIn",
-    url: "https://www.linkedin.com/in/md-ariful-islam-b0b41122b/",
+    url: "https://www.linkedin.com/in/md-arifulislam57/",
   },
   { id: 5, title: "Leetcode", url: "https://leetcode.com/ariful171042/" },
 ];

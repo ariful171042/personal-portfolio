@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useContactReveal } from "../hook/gsap";
+import emailJs from "@emailjs/browser";
 import SectionTitle from "./SectionTitle";
 
 const Contact = () => {
@@ -7,26 +8,46 @@ const Contact = () => {
   const emailRef = useRef(null);
   const massageRef = useRef(null);
   const submitRef = useRef(null);
+  const formRef = useRef(null);
 
   const contactRefs = [nameRef, emailRef, massageRef, submitRef];
 
   useContactReveal(contactRefs);
 
-  const sendMassage = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
     //emailjs integration
+    emailJs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        formRef.current,
+        process.env.REACT_APP_PUBLIC_ID
+      )
+      .then(
+        () => {
+          console.log("message send");
+        },
+        () => {
+          console.log("Message not send");
+        }
+      );
 
     //rest
-    e.target.querySelector(`fullName`).value = "";
-    e.target.querySelector(`email`).value = "";
-    e.target.querySelector(`massage`).value = "";
+    e.target.querySelector(`.fullName`).value = "";
+    e.target.querySelector(`.email`).value = "";
+    e.target.querySelector(`.message`).value = "";
   };
   return (
     <div className="contact  container mx-auto mt-40" id="contact">
       <SectionTitle title={"Contact"} />
 
-      <form onSubmit={sendMassage} className="mt-40 grid grid-cols-2 gap-20">
+      <form
+        onSubmit={sendEmail}
+        className="mt-40 grid grid-cols-2 gap-20"
+        ref={formRef}
+      >
         <div className="from-control overflow-hidden" ref={nameRef}>
           <input
             type="text"
@@ -49,11 +70,11 @@ const Contact = () => {
         <div className="from-control overflow-hidden">
           <textarea
             placeholder="Write your massage"
-            name="massage"
+            name="message"
             required
             rows="1"
             cols="30"
-            className="massage bg-transparent border py-16 px-28 rounded-full border-white/20 outline-none focus:border-cyan-400 duration-500 w-full resize-none"
+            className="message bg-transparent border py-16 px-28 rounded-full border-white/20 outline-none focus:border-cyan-400 duration-500 w-full resize-none"
             ref={massageRef}
           />
         </div>
